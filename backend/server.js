@@ -53,14 +53,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser((user, done) => {
+    console.log('Serializing user:', user);
     done(null, user._id);
 });
 
 passport.deserializeUser(async (id, done) => {
+    console.log('Deserializing user with id:', id);
     try {
         const user = await usersCollection.findOne({ _id: id });
+        if (!user) {
+            console.log('Deserialize: User not found in DB.');
+            return done(new Error('User not found'), null);
+        }
+        console.log('Deserialized user found:', user);
         done(null, user);
     } catch (err) {
+        console.error('Error in deserializeUser:', err);
         done(err, null);
     }
 });
@@ -72,9 +80,11 @@ passport.use(new GoogleStrategy({
     proxy: true
   },
   async (accessToken, refreshToken, profile, done) => {
+    console.log('Google Strategy: Profile received:', profile);
     try {
         const existingUser = await usersCollection.findOne({ googleId: profile.id });
         if (existingUser) {
+            console.log('Google Strategy: Existing user found:', existingUser);
             return done(null, existingUser);
         }
         const newUser = {
@@ -85,10 +95,11 @@ passport.use(new GoogleStrategy({
             createdAt: new Date()
         };
         const result = await usersCollection.insertOne(newUser);
-        // The document inserted has an _id, let's pass that back
         const insertedUser = await usersCollection.findOne({_id: result.insertedId});
+        console.log('Google Strategy: New user created:', insertedUser);
         return done(null, insertedUser);
     } catch (err) {
+        console.error('Google Strategy: Error:', err);
         return done(err, null);
     }
   }
@@ -101,19 +112,25 @@ app.get('/auth/google',
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    // Successful authentication, redirect to the main page.
+    console.log('User authenticated successfully. Session content after auth:', req.session);
     res.redirect('/');
   });
 
 app.get('/auth/logout', (req, res, next) => {
     req.logout(function(err) {
-        if (err) { return next(err); }
+        if (err) { 
+            console.error('Logout error:', err);
+            return next(err); 
+        }
+        console.log('User logged out. Session content after logout:', req.session);
         res.redirect('/');
     });
 });
 
 app.get('/auth/status', (req, res) => {
+    console.log('Checking /auth/status. Session content:', req.session);
     if (req.isAuthenticated()) {
+        console.log('User IS authenticated. User object:', req.user);
         res.json({
             loggedIn: true,
             user: {
@@ -123,6 +140,7 @@ app.get('/auth/status', (req, res) => {
             }
         });
     } else {
+        console.log('User is NOT authenticated.');
         res.json({ loggedIn: false });
     }
 });
