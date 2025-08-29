@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const googleLoginBtn = document.getElementById('google-login-btn');
 
     try {
-        // Check the authentication status from the backend
-        const res = await fetch('/auth/status');
+        // Check the authentication status from the backend, ensuring cookies are sent
+        const res = await fetch('/auth/status', { credentials: 'include' });
         const data = await res.json();
 
         if (data.loggedIn) {
