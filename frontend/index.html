@@ -9,30 +9,43 @@
 </head>
 <body>
     <div id="auth-container">
-        <div class="auth-card">
-            <h1>مرحباً بعودتك!</h1>
-            <p class="subtitle">سجل دخولك للمتابعة</p>
-            
-            <form id="login-form">
-                <div class="input-group">
-                    <label for="email">البريد الإلكتروني أو اسم المستخدم</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">كلمة المرور</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="auth-btn">تسجيل الدخول</button>
-            </form>
+        <!-- Login View -->
+        <div id="login-view">
+            <div class="auth-card">
+                <h1>مرحباً بعودتك!</h1>
+                <p class="subtitle">سجل دخولك للمتابعة</p>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="email">البريد الإلكتروني أو اسم المستخدم</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">كلمة المرور</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">تسجيل الدخول</button>
+                </form>
 
-            <div class="separator"><span>أو</span></div>
+                <div class="separator"><span>أو</span></div>
 
-            <div class="social-login">
-                <button class="social-btn google"> G | المتابعة باستخدام جوجل</button>
-                <button class="social-btn phone">📱 | المتابعة باستخدام رقم الهاتف</button>
+                <div class="social-login">
+                    <button id="google-login-btn" class="social-btn google"> G | المتابعة باستخدام جوجل</button>
+                    <button class="social-btn phone">📱 | المتابعة باستخدام رقم الهاتف</button>
+                </div>
+
+                <p class="footer-text">ليس لديك حساب؟ <a href="#">إنشاء حساب</a></p>
             </div>
+        </div>
 
-            <p class="footer-text">ليس لديك حساب؟ <a href="#">إنشاء حساب</a></p>
+        <!-- Profile View -->
+        <div id="profile-view" style="display: none;">
+            <div class="auth-card profile-card">
+                <img id="user-image" src="" alt="User Avatar" class="avatar">
+                <h1 id="user-name"></h1>
+                <p id="user-email" class="subtitle"></p>
+                <a href="/auth/logout" class="auth-btn logout-btn">تسجيل الخروج</a>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

@@ -449,3 +449,36 @@ h1 {
     cursor: pointer;
     margin-top: 10px;
 }
+
+/* Profile View Styles */
+.profile-card {
+    padding: 40px 35px;
+}
+
+.profile-card .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid var(--card-background);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.profile-card h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-card .subtitle {
+    margin-bottom: 30px;
+}
+
+.logout-btn {
+    background-color: #FF3B30; /* A red color for logout */
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background-color: #E02B20;
+}
