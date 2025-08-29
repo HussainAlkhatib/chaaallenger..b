@@ -1,0 +1,451 @@
+:root {
+    --primary-color: #007AFF;
+    --background-color: #F2F2F7;
+    --card-background: #FFFFFF;
+    --text-color: #1D1D1F;
+    --secondary-text-color: #8A8A8E;
+    --button-text-color: #FFFFFF;
+    --border-color: #E5E5EA;
+    --border-radius: 14px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Auth Page Styles */
+#auth-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.auth-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 30px 35px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.subtitle {
+    color: var(--secondary-text-color);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}
+
+.auth-btn {
+    width: 100%;
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    margin-top: 10px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary-text-color);
+    margin: 30px 0;
+}
+
+.separator span {
+    padding: 0 10px;
+}
+
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 100%;
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.footer-text {
+    margin-top: 30px;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+}
+
+.footer-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* App Layout Styles */
+#app-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1200px;
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+#sidebar {
+    width: 320px;
+    background-color: #F9F9F9;
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.profile-info .username {
+    font-weight: 700;
+    display: block;
+}
+
+.profile-info .status {
+    font-size: 13px;
+    color: var(--secondary-text-color);
+}
+
+.settings-icon {
+    margin-right: auto;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+}
+
+.search-bar {
+    padding: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: #EFEFF0;
+    font-family: 'Tajawal', sans-serif;
+    box-sizing: border-box;
+}
+
+#conversations-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.conversation-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+}
+
+.conversation-item:hover {
+    background-color: #EFEFF0;
+}
+
+.conversation-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.conversation-item.active .username, .conversation-item.active .last-message, .conversation-item.active .timestamp {
+    color: white;
+}
+
+.conversation-item.active .last-message {
+    color: #EFEFF0;
+}
+
+.conversation-details {
+    flex: 1;
+}
+
+.conversation-details .last-message {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: var(--secondary-text-color);
+}
+
+#chat-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    gap: 15px;
+}
+
+.chat-header-info {
+    flex: 1;
+}
+
+.header-icons {
+    display: flex;
+    gap: 25px;
+    color: var(--secondary-text-color);
+}
+
+.header-icons i {
+    cursor: pointer;
+}
+
+#message-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.5;
+}
+
+.message p {
+    margin: 0;
+}
+
+.message .timestamp {
+    font-size: 11px;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+}
+
+.message.sent {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message.sent .timestamp {
+    color: #EFEFF0;
+}
+
+.message.received {
+    background-color: #EFEFF0;
+    color: var(--text-color);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+#message-input-area {
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+#message-input {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: #EFEFF0;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.input-action-btn {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.close-btn {
+    color: #aaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-main-categories, #modal-sub-categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.modal-category-btn {
+    font-family: 'Tajawal', sans-serif;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-category-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#modal-content-display {
+    min-height: 100px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+#modal-send-btn {
+     width: 100%;
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}

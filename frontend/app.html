@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التطبيق</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="app-layout">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <div class="profile-summary">
+                <img src="https://i.pravatar.cc/50?u=hussain" alt="Avatar" class="avatar">
+                <div class="profile-info">
+                    <span class="username">Hussain Alkhatib</span>
+                    <span class="status">متصل</span>
+                </div>
+                <i class="fas fa-cog settings-icon"></i>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="ابحث أو ابدأ محادثة جديدة">
+            </div>
+
+            <div id="conversations-list">
+                <div class="conversation-item active">
+                    <img src="https://i.pravatar.cc/50?u=ali" alt="Avatar" class="avatar">
+                    <div class="conversation-details">
+                        <span class="username">علي</span>
+                        <p class="last-message">تمام، أرسل لي تحدي!</p>
+                    </div>
+                    <span class="timestamp">الآن</span>
+                </div>
+                <div class="conversation-item">
+                    <img src="https://i.pravatar.cc/50?u=fatima" alt="Avatar" class="avatar">
+                    <div class="conversation-details">
+                        <span class="username">فاطمة</span>
+                        <p class="last-message">هههه نكتة حلوة</p>
+                    </div>
+                    <span class="timestamp">٥د</span>
+                </div>
+                 <div class="conversation-item">
+                    <img src="https://i.pravatar.cc/50?u=yusuf" alt="Avatar" class="avatar">
+                    <div class="conversation-details">
+                        <span class="username">يوسف</span>
+                        <p class="last-message">ما هي القوة الخارقة التي تتمنى ...</p>
+                    </div>
+                    <span class="timestamp">١س</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Chat Window -->
+        <main id="chat-window">
+            <header id="chat-header">
+                <img src="https://i.pravatar.cc/40?u=ali" alt="Avatar" class="avatar">
+                <div class="chat-header-info">
+                    <span class="username">علي</span>
+                    <span class="status">متصل</span>
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-video"></i>
+                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </header>
+
+            <div id="message-area">
+                <div class="message received">
+                    <p>أهلاً! كيف حالك؟</p>
+                    <span class="timestamp">١٠:٣٠ ص</span>
+                </div>
+                <div class="message sent">
+                    <p>أهلاً علي، أنا بخير الحمد لله. شرايك نلعب؟</p>
+                    <span class="timestamp">١٠:٣١ ص</span>
+                </div>
+                 <div class="message received">
+                    <p>قدام! أرسل لي تحدي صعب.</p>
+                    <span class="timestamp">١٠:٣٢ ص</span>
+                </div>
+            </div>
+
+            <footer id="message-input-area">
+                <button id="special-content-btn" class="input-action-btn">🔥</button>
+                <input type="text" id="message-input" placeholder="اكتب رسالتك هنا...">
+                <button id="send-btn" class="input-action-btn"><i class="fas fa-paper-plane"></i></button>
+            </footer>
+        </main>
+    </div>
+
+    <!-- The Modal -->
+    <div id="content-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>إرسال محتوى خاص</h2>
+            <div id="modal-main-categories">
+                 <button class="modal-category-btn" data-category="jokes">😂 نكت</button>
+                <button class="modal-category-btn" data-category="questions">🤔 أسئلة</button>
+                <button class="modal-category-btn active" data-category="challenges">🔥 تحديات</button>
+            </div>
+            <div id="modal-sub-categories">
+                <!-- Sub-categories will be dynamically inserted here -->
+            </div>
+            <div id="modal-content-display">
+                <p id="modal-content-text">اختر فئة لعرض المحتوى</p>
+            </div>
+            <button id="modal-send-btn">إرسال</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
